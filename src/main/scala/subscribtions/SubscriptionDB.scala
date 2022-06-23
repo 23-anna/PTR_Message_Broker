@@ -7,13 +7,23 @@ object SubscriptionDB {
   val subscriptions = new ArrayBuffer[Subscription]()
 
   def createNewSubscription(subscription: Subscription) = {
-    subscriptions.addOne(subscription)
+    subscriptions += subscription
   }
 
   def deleteSubscription(subscription: Subscription) = {
-    println("deleteSubscription()")
+//    println("deleteSubscription()")
     for (a <- subscriptions.indices){
       if (subscriptions(a).id.equals(subscription.id)){
+        subscriptions.remove(a)
+      }
+    }
+    println("Current number of subscribers: " + subscriptions.length)
+  }
+
+  def deleteSubscriptionById(subscriptionId: Int) = {
+//    println("deleteSubscriptionById()")
+    for (a <- subscriptions.indices){
+      if (subscriptions(a).id.equals(subscriptionId)){
         subscriptions.remove(a)
       }
     }

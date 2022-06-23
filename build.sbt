@@ -1,8 +1,12 @@
 
 // The simplest possible sbt build file is just one line:
 
+mainClass in Compile := Some("Main")
+enablePlugins(JavaAppPackaging)
+enablePlugins(DockerPlugin)
+
 val akkaVersion = "2.6.18"
-scalaVersion := "2.13.8"
+//scalaVersion := "2.13.8"
 // That is, to create a valid sbt build, all you've got to do is define the
 // version of Scala you'd like your project to use.
 
@@ -71,7 +75,7 @@ libraryDependencies += "org.scala-lang.modules" %% "scala-parser-combinators" % 
 //       organization := "ch.epfl.scala",
 //       scalaVersion := "2.13.8"
 //     )),
-//     name := "hello-world"
+//     name := "ptr-lab3"
 //   )
 
 // To learn more about multi-project builds, head over to the official sbt
@@ -82,3 +86,9 @@ libraryDependencies ++= Seq(
   "com.typesafe.akka" %% "akka-testkit" % akkaVersion % Test,
   "org.scalameta" %% "munit" % "0.7.26" % Test
 )
+
+
+
+
+
+//libraryDependencies += "com.github.scala-incubator.io" %% "scala-io-file" % "0.4.2"
